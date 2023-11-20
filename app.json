@@ -9,7 +9,7 @@
     ],
     "name": "Todo_List",
     "slug": "todo-app",
-    "icon":"../app/assets/icon.jpg",
+    "icon":"./app/assets/icon.jpg",
     "extra": {
       "router": {
         "origin": false
