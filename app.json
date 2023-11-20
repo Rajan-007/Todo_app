@@ -8,6 +8,19 @@
       "expo-router"
     ],
     "name": "Todo_List",
-    "slug": "Todo_List"
+    "slug": "todo-app",
+    "icon":"../app/assets/icon.jpg",
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "a0864648-4787-47ab-bf27-dd61a048e74f"
+      }
+    },
+    "android": {
+      "package": "com.rajan007.Todo_List"
+    },
+    "owner": "rajan-007"
   }
 }
