@@ -1,7 +1,8 @@
 import React,{useState} from 'react'
 import { Text,View ,ScrollView,TextInput,StatusBar,KeyboardAvoidingView } from 'react-native'
-import Task from './components/Task';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import FontAwesome from '@expo/vector-icons/FontAwesome';
+
 
 function index() {
   const [task, setTask] = useState();
@@ -12,7 +13,11 @@ function index() {
     setTask( null );
   }
 
- 
+  const completeTask = (index) => {
+    let itemsCopy = [...taskItems];
+    itemsCopy.splice(index, 1);
+    setTaskItems(itemsCopy)
+  }
   return (
     <View className='flex flex-1 flex-column h-screen w-screen bg-[#1D1537]'>
       <Text className='flex flex-row justify-Start text-3xl font-bold mx-3 mt-20 text-white '>Today Tasks</Text>
@@ -20,9 +25,17 @@ function index() {
         {
         taskItems.map((item, index) => {
               return (
-                <TouchableOpacity key={index}  >
-                  <Task text={item} /> 
-                </TouchableOpacity>
+                <View key={index}  >
+                 <View>
+                    <TouchableOpacity className='bg-[#f4f4f2] mt-10 mx-8 py-3 rounded-lg flex flex-row justify-around items-center '>
+                        <View className='h-5 w-5 bg-black rounded-md'></View>
+                          <Text className=' '>{item}</Text>
+                            <FontAwesome name='trash' size={24} onPress={() => completeTask(index)}>
+                              
+                            </FontAwesome>
+                      </TouchableOpacity>
+                </View>
+                </View>
               )
             })
         }
