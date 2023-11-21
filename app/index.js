@@ -12,11 +12,7 @@ function index() {
     setTask( null );
   }
 
-  const completeTask = (index) => {
-    let itemsCopy = [...taskItems];
-    itemsCopy.splice(index, 1);
-    setTaskItems(itemsCopy)
-  }
+ 
   return (
     <View className='flex flex-1 flex-column h-screen w-screen bg-[#1D1537]'>
       <Text className='flex flex-row justify-Start text-3xl font-bold mx-3 mt-20 text-white '>Today Tasks</Text>
@@ -24,7 +20,7 @@ function index() {
         {
         taskItems.map((item, index) => {
               return (
-                <TouchableOpacity key={index}  onPress={() => completeTask(index)}>
+                <TouchableOpacity key={index}  >
                   <Task text={item} /> 
                 </TouchableOpacity>
               )
