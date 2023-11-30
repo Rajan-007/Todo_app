@@ -2,13 +2,11 @@ import React,{useState} from 'react'
 import { Text,View ,ScrollView,TextInput,StatusBar,KeyboardAvoidingView} from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
-import CheckBox from 'expo-checkbox';
 
 
 function index() {
   const [task, setTask] = useState();
   const [taskItems, setTaskItems] = useState([]);
-  const [isChecked, setIsChecked] = useState(false);
 
   const handleAddTask = () => {
     setTaskItems([...taskItems,task])
@@ -30,9 +28,7 @@ function index() {
                 <View key={index}  >
                  <View>
                     <TouchableOpacity className='bg-[#f4f4f2] mt-10 mx-8 py-3 rounded-lg flex flex-row justify-around items-center '>
-                    <CheckBox  value={isChecked}
-  onValueChange={(newValue) => setIsChecked(newValue)}
-/>                       <Text className=' '>{item}</Text>
+                            <Text className=' '>{item}</Text>
                             <FontAwesome name='trash' size={24} onPress={() => completeTask(index)}>   </FontAwesome>
                       </TouchableOpacity>
                 </View>
